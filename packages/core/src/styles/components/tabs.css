@@ -1,0 +1,47 @@
+/* Tabs — markup contract: [data-kit-tabs] > [role=tablist].kit-tabs__list + panels. */
+
+.kit-tabs__list {
+  display: flex;
+  gap: var(--kit-space-1);
+  border-block-end: 1px solid var(--kit-color-border-default);
+}
+
+.kit-tabs__tab {
+  padding: var(--kit-space-2) var(--kit-space-3);
+  margin-block-end: -1px;
+  border: none;
+  border-block-end: 2px solid transparent;
+  background: none;
+  color: var(--kit-color-fg-muted);
+  font-size: var(--kit-font-size-sm);
+  font-weight: var(--kit-font-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard),
+    border-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-tabs__tab:hover:not(:disabled) {
+  color: var(--kit-color-fg-default);
+}
+
+.kit-tabs__tab[aria-selected="true"] {
+  color: var(--kit-color-accent-fg);
+  border-block-end-color: var(--kit-color-accent-default);
+}
+
+.kit-tabs__tab:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.kit-tabs__panel {
+  padding-block-start: var(--kit-space-4);
+  font-size: var(--kit-font-size-sm);
+  color: var(--kit-color-fg-muted);
+}
+
+.kit-tabs__panel[hidden] {
+  display: none;
+}

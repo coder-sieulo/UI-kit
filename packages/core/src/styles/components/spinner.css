@@ -1,0 +1,25 @@
+/* Spinner — size via em so it scales with font-size. */
+
+.kit-spinner {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  border: 2px solid var(--kit-color-border-default);
+  border-block-start-color: var(--kit-color-accent-default);
+  border-radius: var(--kit-radius-full);
+  animation: kit-spin 0.7s linear infinite;
+}
+
+.kit-spinner--sm {
+  font-size: var(--kit-font-size-sm);
+}
+
+.kit-spinner--lg {
+  font-size: var(--kit-font-size-2xl);
+}
+
+@keyframes kit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

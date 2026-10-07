@@ -1,0 +1,80 @@
+/* Dialog — built on native <dialog> (focus trap + Esc come free). */
+
+.kit-dialog {
+  width: min(32rem, calc(100vw - var(--kit-space-8)));
+  max-height: min(85vh, 48rem);
+  padding: 0;
+  border: 1px solid var(--kit-color-border-default);
+  border-radius: var(--kit-radius-lg);
+  background-color: var(--kit-color-bg-raised);
+  color: var(--kit-color-fg-default);
+  box-shadow: var(--kit-shadow-lg);
+  overflow: clip;
+}
+
+.kit-dialog--sm {
+  width: min(24rem, calc(100vw - var(--kit-space-8)));
+}
+
+.kit-dialog--lg {
+  width: min(48rem, calc(100vw - var(--kit-space-8)));
+}
+
+.kit-dialog::backdrop {
+  background-color: var(--kit-overlay-bg);
+}
+
+.kit-dialog[open] {
+  animation: kit-dialog-in var(--kit-motion-duration-base) var(--kit-motion-easing-standard);
+}
+
+@keyframes kit-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+.kit-dialog__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--kit-space-3);
+  padding: var(--kit-space-5) var(--kit-space-5) var(--kit-space-3);
+  font-size: var(--kit-font-size-lg);
+  font-weight: var(--kit-font-weight-semibold);
+}
+
+.kit-dialog__body {
+  padding: 0 var(--kit-space-5) var(--kit-space-5);
+  color: var(--kit-color-fg-muted);
+  font-size: var(--kit-font-size-sm);
+}
+
+.kit-dialog__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kit-space-2);
+  padding: var(--kit-space-4) var(--kit-space-5);
+  border-block-start: 1px solid var(--kit-color-border-muted);
+  background-color: var(--kit-color-bg-sunken);
+}
+
+.kit-dialog__close {
+  position: absolute;
+  inset-block-start: var(--kit-space-3);
+  inset-inline-end: var(--kit-space-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: var(--kit-radius-sm);
+  color: var(--kit-color-fg-muted);
+  transition: background-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-dialog__close:hover {
+  background-color: var(--kit-color-bg-hover);
+  color: var(--kit-color-fg-default);
+}

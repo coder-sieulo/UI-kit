@@ -1,0 +1,92 @@
+/* Toast — region is created by the runtime (#kit-toasts). */
+
+.kit-toast-region {
+  position: fixed;
+  inset-block-end: var(--kit-space-4);
+  inset-inline-end: var(--kit-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--kit-space-2);
+  z-index: var(--kit-z-toast);
+  pointer-events: none;
+}
+
+.kit-toast {
+  --_accent: var(--kit-color-accent-default);
+
+  display: flex;
+  align-items: flex-start;
+  gap: var(--kit-space-3);
+  min-width: 16rem;
+  max-width: 24rem;
+  padding: var(--kit-space-3) var(--kit-space-4);
+  border: 1px solid var(--kit-color-border-default);
+  border-inline-start: 3px solid var(--_accent);
+  border-radius: var(--kit-radius-md);
+  background-color: var(--kit-color-bg-raised);
+  box-shadow: var(--kit-shadow-md);
+  pointer-events: auto;
+  animation: kit-toast-in var(--kit-motion-duration-base) var(--kit-motion-easing-standard);
+}
+
+.kit-toast--leaving {
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--kit-motion-duration-base) var(--kit-motion-easing-standard),
+    transform var(--kit-motion-duration-base) var(--kit-motion-easing-standard);
+}
+
+.kit-toast--success {
+  --_accent: var(--kit-color-success-default);
+}
+
+.kit-toast--warning {
+  --_accent: var(--kit-color-warning-default);
+}
+
+.kit-toast--danger {
+  --_accent: var(--kit-color-danger-default);
+}
+
+.kit-toast__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.kit-toast__title {
+  font-size: var(--kit-font-size-sm);
+  font-weight: var(--kit-font-weight-semibold);
+  color: var(--kit-color-fg-default);
+}
+
+.kit-toast__desc {
+  margin-block-start: 0.125rem;
+  font-size: var(--kit-font-size-xs);
+  color: var(--kit-color-fg-muted);
+}
+
+.kit-toast__close {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: -0.125rem -0.25rem 0 0;
+  border-radius: var(--kit-radius-sm);
+  color: var(--kit-color-fg-muted);
+  transition: background-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-toast__close:hover {
+  background-color: var(--kit-color-bg-hover);
+  color: var(--kit-color-fg-default);
+}
+
+@keyframes kit-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

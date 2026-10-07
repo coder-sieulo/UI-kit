@@ -1,0 +1,12 @@
+{
+  "dialog": {
+    "close": "Close"
+  },
+  "toast": {
+    "dismiss": "Dismiss",
+    "region": "Notifications"
+  },
+  "field": {
+    "required": "required"
+  }
+}

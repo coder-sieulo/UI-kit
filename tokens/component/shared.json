@@ -1,0 +1,57 @@
+{
+  "button": {
+    "radius": "{radius.sm}",
+    "weight": "{font.weight.medium}",
+    "padding-x": "{space.4}",
+    "height": "2.25rem",
+    "height-sm": "1.875rem",
+    "height-lg": "2.625rem",
+    "primary": {
+      "bg": "{color.accent.default}",
+      "bg-hover": "{color.accent.hover}",
+      "bg-active": "{color.accent.active}",
+      "fg": "{color.fg.on-accent}",
+      "border": "transparent"
+    },
+    "secondary": {
+      "bg": "{color.bg.surface}",
+      "bg-hover": "{color.bg.hover}",
+      "bg-active": "{color.bg.sunken}",
+      "fg": "{color.fg.default}",
+      "border": "{color.border.default}",
+      "border-hover": "{color.border.strong}"
+    },
+    "ghost": {
+      "bg": "transparent",
+      "bg-hover": "{color.bg.hover}",
+      "bg-active": "{color.bg.sunken}",
+      "fg": "{color.fg.muted}",
+      "border": "transparent"
+    },
+    "danger": {
+      "bg": "{color.danger.default}",
+      "bg-hover": "{color.danger.hover}",
+      "bg-active": "{color.danger.hover}",
+      "fg": "{color.white}",
+      "border": "transparent"
+    }
+  },
+  "input": {
+    "radius": "{radius.sm}",
+    "bg": "{color.bg.surface}",
+    "fg": "{color.fg.default}",
+    "placeholder": "{color.fg.subtle}",
+    "border": "{color.border.default}",
+    "border-hover": "{color.border.strong}",
+    "border-focus": "{color.accent.default}",
+    "height": "2.25rem"
+  },
+  "field": {
+    "label-fg": "{color.fg.default}",
+    "hint-fg": "{color.fg.muted}",
+    "error-fg": "{color.danger.fg}"
+  },
+  "overlay": {
+    "bg": "rgba(23, 22, 18, 0.45)"
+  }
+}

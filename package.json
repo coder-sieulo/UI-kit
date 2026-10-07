@@ -1,0 +1,24 @@
+{
+  "name": "kit-monorepo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "size": "node scripts/size.mjs",
+    "verify": "npm run typecheck && npm run build && npm test && npm run size",
+    "demo": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

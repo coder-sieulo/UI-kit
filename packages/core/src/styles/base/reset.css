@@ -1,0 +1,90 @@
+/* Kit base reset — minimal, token-driven, low specificity via :where(). */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(html) {
+  -webkit-text-size-adjust: 100%;
+  tab-size: 2;
+}
+
+:where(body) {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--kit-font-sans);
+  font-size: var(--kit-font-size-base);
+  line-height: var(--kit-font-line-height-normal);
+  color: var(--kit-color-fg-default);
+  background-color: var(--kit-color-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  font-weight: var(--kit-font-weight-semibold);
+  line-height: var(--kit-font-line-height-tight);
+  letter-spacing: -0.01em;
+}
+
+:where(p, ul, ol, dl, blockquote, figure, pre) {
+  margin: 0;
+}
+
+:where(a) {
+  color: var(--kit-color-accent-fg);
+  text-underline-offset: 0.2em;
+}
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
+  max-width: 100%;
+}
+
+:where(input, button, textarea, select) {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+:where(button) {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+:where(table) {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:where(hr) {
+  border: none;
+  border-block-start: 1px solid var(--kit-color-border-default);
+  margin: 0;
+}
+
+:where(code, kbd, samp, pre) {
+  font-family: var(--kit-font-mono);
+  font-size: 0.9em;
+}
+
+/* One visible focus style for the whole kit. */
+:where(:focus-visible) {
+  outline: 2px solid var(--kit-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Kill animations for users who ask for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  :where(*, *::before, *::after) {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

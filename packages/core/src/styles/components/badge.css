@@ -1,0 +1,54 @@
+/* Badge — neutral (default), accent, success, warning, danger. */
+
+.kit-badge {
+  --_bg: var(--kit-color-bg-sunken);
+  --_fg: var(--kit-color-fg-muted);
+  --_border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kit-space-1);
+  padding-block: 0.125rem;
+  padding-inline: var(--kit-space-2);
+  border: 1px solid var(--_border);
+  border-radius: var(--kit-radius-full);
+  background-color: var(--_bg);
+  color: var(--_fg);
+  font-size: var(--kit-font-size-xs);
+  font-weight: var(--kit-font-weight-medium);
+  line-height: 1.5;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.kit-badge--accent {
+  --_bg: var(--kit-color-accent-subtle);
+  --_fg: var(--kit-color-accent-fg);
+}
+
+.kit-badge--success {
+  --_bg: var(--kit-color-success-subtle);
+  --_fg: var(--kit-color-success-fg);
+}
+
+.kit-badge--warning {
+  --_bg: var(--kit-color-warning-subtle);
+  --_fg: var(--kit-color-warning-fg);
+}
+
+.kit-badge--danger {
+  --_bg: var(--kit-color-danger-subtle);
+  --_fg: var(--kit-color-danger-fg);
+}
+
+.kit-badge--outline {
+  --_bg: transparent;
+  --_border: var(--kit-color-border-default);
+}
+
+.kit-badge__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: var(--kit-radius-full);
+  background-color: currentColor;
+}

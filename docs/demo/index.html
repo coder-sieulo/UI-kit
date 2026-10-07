@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit — component demo</title>
+<!-- Mode 1: stylesheet link (id lets the script detect CSS is already loaded) -->
+<link id="kit-styles" rel="stylesheet" href="/packages/core/dist/kit.min.css">
+<style>
+  /* page chrome only — everything else is kit classes */
+  .demo-head {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: var(--kit-space-4);
+    padding: var(--kit-space-6) var(--kit-space-6) var(--kit-space-4);
+    border-block-end: 1px solid var(--kit-color-border-default);
+  }
+  .demo-sub { color: var(--kit-color-fg-muted); font-size: var(--kit-font-size-sm); margin-block-start: var(--kit-space-1); }
+  .demo-actions { display: flex; gap: var(--kit-space-2); }
+  .wrap { max-width: 64rem; margin-inline: auto; padding: var(--kit-space-6); display: grid; gap: var(--kit-space-6); }
+  .section {
+    background-color: var(--kit-color-bg-raised);
+    border: 1px solid var(--kit-color-border-default);
+    border-radius: var(--kit-radius-md);
+    padding: var(--kit-space-5);
+  }
+  .section > h2 { font-size: var(--kit-font-size-base); margin-block-end: var(--kit-space-4); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--kit-space-3); align-items: center; }
+  .col { display: grid; gap: var(--kit-space-4); }
+  .stack-sm { display: grid; gap: var(--kit-space-2); }
+  .muted { color: var(--kit-color-fg-muted); font-size: var(--kit-font-size-sm); }
+  .skel-lines > .kit-skeleton { max-width: 100%; }
+  .skel-lines > :nth-child(1) { width: 92%; }
+  .skel-lines > :nth-child(2) { width: 78%; }
+  .skel-lines > :nth-child(3) { width: 85%; }
+</style>
+</head>
+<body>
+
+<header class="demo-head">
+  <div>
+    <h1 style="font-size: var(--kit-font-size-2xl);">Kit <span class="kit-badge kit-badge--accent">demo</span></h1>
+    <p class="demo-sub">Ultra-light multi-platform UI kit — pure CSS, injected, i18n-ready.</p>
+  </div>
+  <div class="demo-actions">
+    <button id="theme-btn" class="kit-btn kit-btn--secondary kit-btn--sm" type="button">Theme: system</button>
+    <button id="locale-btn" class="kit-btn kit-btn--secondary kit-btn--sm" type="button">Tiếng Việt</button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <h2>Buttons</h2>
+    <div class="row">
+      <button class="kit-btn kit-btn--primary" type="button">Primary</button>
+      <button class="kit-btn" type="button">Secondary</button>
+      <button class="kit-btn kit-btn--ghost" type="button">Ghost</button>
+      <button class="kit-btn kit-btn--danger" type="button">Danger</button>
+      <button class="kit-btn kit-btn--primary" type="button" disabled>Disabled</button>
+    </div>
+    <div class="row" style="margin-block-start: var(--kit-space-3);">
+      <button class="kit-btn kit-btn--primary kit-btn--sm" type="button">Small</button>
+      <button class="kit-btn kit-btn--primary" type="button">Medium</button>
+      <button class="kit-btn kit-btn--primary kit-btn--lg" type="button">Large</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Form fields</h2>
+    <div class="col">
+      <div class="kit-field">
+        <label class="kit-field__label" for="f-email">Email <span class="kit-field__required" aria-hidden="true">*</span></label>
+        <input class="kit-input" id="f-email" type="email" placeholder="you@example.com" required>
+        <span class="kit-field__hint">We never share your email.</span>
+      </div>
+      <div class="kit-field">
+        <label class="kit-field__label" for="f-error">Username</label>
+        <input class="kit-input" id="f-error" value="ki t ui" aria-invalid="true" aria-describedby="f-error-msg">
+        <span class="kit-field__error" id="f-error-msg">Only lowercase letters and numbers, no spaces.</span>
+      </div>
+      <div class="kit-field">
+        <label class="kit-field__label" for="f-select">Role</label>
+        <select class="kit-input" id="f-select">
+          <option>Viewer</option>
+          <option>Editor</option>
+          <option>Admin</option>
+        </select>
+      </div>
+      <div class="kit-field">
+        <label class="kit-field__label" for="f-area">Message</label>
+        <textarea class="kit-input" id="f-area" rows="3" placeholder="Write something…"></textarea>
+      </div>
+      <div class="kit-field">
+        <label class="kit-field__label" for="f-disabled">Disabled</label>
+        <input class="kit-input" id="f-disabled" value="Read only" disabled>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Choices</h2>
+    <div class="row">
+      <label class="kit-choice"><input type="checkbox" checked><span>Checkbox on</span></label>
+      <label class="kit-choice"><input type="checkbox"><span>Checkbox off</span></label>
+      <label class="kit-choice"><input type="checkbox" disabled><span>Disabled</span></label>
+      <label class="kit-choice"><input type="checkbox" id="indet"><span>Indeterminate</span></label>
+    </div>
+    <div class="row" style="margin-block-start: var(--kit-space-3);">
+      <label class="kit-choice"><input type="radio" name="demo-radio" checked><span>Choice A</span></label>
+      <label class="kit-choice"><input type="radio" name="demo-radio"><span>Choice B</span></label>
+      <label class="kit-choice kit-choice--switch"><input class="kit-switch" type="checkbox" role="switch" checked><span>Switch on</span></label>
+      <label class="kit-choice kit-choice--switch"><input class="kit-switch" type="checkbox" role="switch"><span>Switch off</span></label>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Badges & avatars</h2>
+    <div class="row">
+      <span class="kit-badge">Neutral</span>
+      <span class="kit-badge kit-badge--accent">Accent</span>
+      <span class="kit-badge kit-badge--success"><span class="kit-badge__dot"></span>Success</span>
+      <span class="kit-badge kit-badge--warning">Warning</span>
+      <span class="kit-badge kit-badge--danger">Danger</span>
+      <span class="kit-badge kit-badge--outline">Outline</span>
+    </div>
+    <div class="row" style="margin-block-start: var(--kit-space-4);">
+      <span class="kit-avatar kit-avatar--sm">SM</span>
+      <span class="kit-avatar">MD</span>
+      <span class="kit-avatar kit-avatar--lg">LG</span>
+      <span class="kit-avatar kit-avatar--xl">XL</span>
+      <span class="kit-avatar-group">
+        <span class="kit-avatar">TN</span>
+        <span class="kit-avatar">ML</span>
+        <span class="kit-avatar">+3</span>
+      </span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Cards</h2>
+    <div class="row" style="align-items: stretch;">
+      <article class="kit-card" style="flex: 1 1 16rem;">
+        <div class="kit-card__header">Monthly report</div>
+        <div class="kit-card__body muted">Revenue is up <strong style="color: var(--kit-color-success-fg);">+18%</strong> compared to last month.</div>
+        <div class="kit-card__footer">
+          <button class="kit-btn kit-btn--primary kit-btn--sm" type="button">Open</button>
+        </div>
+      </article>
+      <article class="kit-card kit-card--interactive" style="flex: 1 1 16rem;">
+        <div class="kit-card__header">Interactive <span class="kit-badge kit-badge--accent">new</span></div>
+        <div class="kit-card__body muted">Hover me — elevation and border respond to the token scale.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Tabs</h2>
+    <div data-kit-tabs>
+      <div class="kit-tabs__list" role="tablist" aria-label="Demo tabs">
+        <button class="kit-tabs__tab" role="tab" type="button" id="tabbtn-1" aria-controls="tab-1" aria-selected="true">Overview</button>
+        <button class="kit-tabs__tab" role="tab" type="button" id="tabbtn-2" aria-controls="tab-2" aria-selected="false" tabindex="-1">Usage</button>
+        <button class="kit-tabs__tab" role="tab" type="button" id="tabbtn-3" aria-controls="tab-3" aria-selected="false" tabindex="-1">FAQ</button>
+      </div>
+      <div class="kit-tabs__panel" role="tabpanel" id="tab-1" aria-labelledby="tabbtn-1">
+        Arrow keys move between tabs; selection follows focus. Panels toggle via <code>hidden</code>.
+      </div>
+      <div class="kit-tabs__panel" role="tabpanel" id="tab-2" aria-labelledby="tabbtn-2" hidden>
+        Drop the markup in, add <code>data-kit-tabs</code>, done — no configuration object.
+      </div>
+      <div class="kit-tabs__panel" role="tabpanel" id="tab-3" aria-labelledby="tabbtn-3" hidden>
+        Everything is token-driven: change <code>--kit-accent</code> and the whole kit follows.
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Dialog & toasts</h2>
+    <div class="row">
+      <button class="kit-btn kit-btn--primary" type="button" data-kit-open="demo-dialog">Open dialog</button>
+      <button class="kit-btn" type="button" data-toast="info">Toast: info</button>
+      <button class="kit-btn" type="button" data-toast="success">Toast: success</button>
+      <button class="kit-btn" type="button" data-toast="warning">Toast: warning</button>
+      <button class="kit-btn" type="button" data-toast="danger">Toast: danger</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Spinner & skeleton</h2>
+    <div class="row">
+      <span class="kit-spinner kit-spinner--sm" role="status" aria-label="Loading"></span>
+      <span class="kit-spinner" role="status" aria-label="Loading"></span>
+      <span class="kit-spinner kit-spinner--lg" role="status" aria-label="Loading"></span>
+    </div>
+    <div class="stack-sm skel-lines" style="margin-block-start: var(--kit-space-4);">
+      <span class="kit-skeleton kit-skeleton--text"></span>
+      <span class="kit-skeleton kit-skeleton--text"></span>
+      <span class="kit-skeleton kit-skeleton--text"></span>
+    </div>
+    <div class="row" style="margin-block-start: var(--kit-space-4);">
+      <span class="kit-skeleton kit-skeleton--circle" style="width: 2.5rem; height: 2.5rem;"></span>
+      <span class="kit-skeleton" style="width: 10rem; height: 2.5rem;"></span>
+    </div>
+  </section>
+
+</main>
+
+<dialog class="kit-dialog" id="demo-dialog" aria-labelledby="demo-dialog-title">
+  <div class="kit-dialog__header" id="demo-dialog-title">
+    Delete project?
+    <button class="kit-dialog__close" type="button" data-kit-close aria-label="Close">✕</button>
+  </div>
+  <div class="kit-dialog__body">
+    This permanently removes <strong>acme-landing</strong>, its builds and analytics.
+    This action cannot be undone.
+  </div>
+  <div class="kit-dialog__footer">
+    <button class="kit-btn kit-btn--ghost" type="button" data-kit-close>Cancel</button>
+    <button class="kit-btn kit-btn--danger" type="button" data-kit-close>Delete</button>
+  </div>
+</dialog>
+
+<!-- Mode 2: the script alone would also inject the CSS (drop the <link> to try it) -->
+<script type="module" src="/packages/core/dist/kit.min.js"></script>
+<script type="module">
+  import { getLocale, getTheme, registerMessages, setLocale, setTheme, t, toast } from '/packages/core/dist/kit.min.js';
+
+  // Demo-owned strings go through the same i18n module.
+  registerMessages('en', {
+    demo: { saved: 'Saved', savedDesc: 'Your changes were stored on the server.' }
+  });
+  registerMessages('vi', {
+    demo: { saved: 'Đã lưu', savedDesc: 'Các thay đổi đã được lưu trên máy chủ.' }
+  });
+
+  const themes = ['system', 'light', 'dark'];
+  const themeBtn = document.getElementById('theme-btn');
+  const localeBtn = document.getElementById('locale-btn');
+  const dialogClose = document.querySelector('.kit-dialog__close');
+  let themeIndex = Math.max(0, themes.indexOf(getTheme()));
+
+  function render() {
+    themeBtn.textContent = `Theme: ${getTheme()}`;
+    localeBtn.textContent = getLocale() === 'vi' ? 'English' : 'Tiếng Việt';
+    dialogClose.setAttribute('aria-label', t('dialog.close'));
+  }
+
+  themeBtn.addEventListener('click', () => {
+    themeIndex = (themeIndex + 1) % themes.length;
+    const next = themes[themeIndex];
+    setTheme(next);
+    render();
+  });
+
+  localeBtn.addEventListener('click', () => {
+    setLocale(getLocale() === 'vi' ? 'en' : 'vi');
+    render();
+  });
+
+  for (const btn of document.querySelectorAll('[data-toast]')) {
+    btn.addEventListener('click', () => {
+      const variant = btn.getAttribute('data-toast');
+      toast({ title: t('demo.saved'), description: t('demo.savedDesc'), variant });
+    });
+  }
+
+  // Indeterminate checkbox demo
+  document.getElementById('indet').indeterminate = true;
+
+  render();
+</script>
+
+</body>
+</html>

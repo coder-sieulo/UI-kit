@@ -1,0 +1,137 @@
+/* Choice controls — checkbox, radio, switch (native input + label). */
+
+.kit-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kit-space-2);
+  font-size: var(--kit-font-size-sm);
+  color: var(--kit-color-fg-default);
+  cursor: pointer;
+  user-select: none;
+}
+
+.kit-choice input {
+  appearance: none;
+  flex: none;
+  display: grid;
+  place-content: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  border: 1.5px solid var(--kit-input-border-hover);
+  border-radius: var(--kit-radius-sm);
+  background-color: var(--kit-input-bg);
+  cursor: pointer;
+  transition:
+    background-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard),
+    border-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-choice input:hover:not(:disabled) {
+  border-color: var(--kit-color-accent-default);
+}
+
+.kit-choice input:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.kit-choice input:disabled + span {
+  cursor: not-allowed;
+}
+
+/* Checkbox checkmark (drawn with rotated borders). */
+.kit-choice input[type="checkbox"]::after {
+  content: "";
+  width: 0.55rem;
+  height: 0.3rem;
+  border-inline-start: 2px solid var(--kit-color-fg-on-accent);
+  border-block-end: 2px solid var(--kit-color-fg-on-accent);
+  transform: rotate(-45deg) translate(1px, -1px);
+  scale: 0;
+  transition: scale var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-choice input[type="checkbox"]:checked {
+  background-color: var(--kit-color-accent-default);
+  border-color: var(--kit-color-accent-default);
+}
+
+.kit-choice input[type="checkbox"]:checked::after {
+  scale: 1;
+}
+
+.kit-choice input[type="checkbox"]:indeterminate {
+  background-color: var(--kit-color-accent-default);
+  border-color: var(--kit-color-accent-default);
+}
+
+.kit-choice input[type="checkbox"]:indeterminate::after {
+  width: 0.55rem;
+  height: 0;
+  border-inline-start: none;
+  border-block-end: 2px solid var(--kit-color-fg-on-accent);
+  transform: none;
+  scale: 1;
+}
+
+/* Radio */
+.kit-choice input[type="radio"] {
+  border-radius: var(--kit-radius-full);
+}
+
+.kit-choice input[type="radio"]::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--kit-radius-full);
+  background-color: var(--kit-color-fg-on-accent);
+  scale: 0;
+  transition: scale var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-choice input[type="radio"]:checked {
+  background-color: var(--kit-color-accent-default);
+  border-color: var(--kit-color-accent-default);
+}
+
+.kit-choice input[type="radio"]:checked::after {
+  scale: 1;
+}
+
+/* Switch */
+.kit-choice--switch input.kit-switch {
+  position: relative;
+  width: 2.25rem;
+  height: 1.25rem;
+  border-radius: var(--kit-radius-full);
+  border-color: transparent;
+  background-color: var(--kit-color-border-strong);
+}
+
+.kit-choice--switch input.kit-switch::after {
+  content: "";
+  position: absolute;
+  inset-block-start: 2px;
+  inset-inline-start: 2px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: var(--kit-radius-full);
+  background-color: var(--kit-color-white);
+  box-shadow: var(--kit-shadow-sm);
+  scale: 1;
+  translate: 0 0;
+  transition: translate var(--kit-motion-duration-base) var(--kit-motion-easing-standard);
+}
+
+.kit-choice--switch input.kit-switch:checked {
+  background-color: var(--kit-color-accent-default);
+}
+
+.kit-choice--switch input.kit-switch:checked::after {
+  translate: 1rem 0;
+}
+
+[dir="rtl"] .kit-choice--switch input.kit-switch:checked::after {
+  translate: -1rem 0;
+}

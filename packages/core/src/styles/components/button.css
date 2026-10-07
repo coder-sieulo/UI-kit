@@ -1,0 +1,92 @@
+/* Button — variants: primary (default accent), secondary, ghost, danger; sizes: sm, md, lg. */
+
+.kit-btn {
+  /* default = secondary; variant classes override these */
+  --_bg: var(--kit-button-secondary-bg);
+  --_bg-hover: var(--kit-button-secondary-bg-hover);
+  --_bg-active: var(--kit-button-secondary-bg-active);
+  --_fg: var(--kit-button-secondary-fg);
+  --_border: var(--kit-button-secondary-border);
+  --_border-hover: var(--kit-button-secondary-border-hover);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kit-space-2);
+  height: var(--kit-button-height);
+  padding-inline: var(--kit-button-padding-x);
+  border: 1px solid var(--_border);
+  border-radius: var(--kit-button-radius);
+  background-color: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--kit-font-sans);
+  font-size: var(--kit-font-size-sm);
+  font-weight: var(--kit-button-weight);
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard),
+    border-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard),
+    color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-btn:hover:not(:disabled) {
+  background-color: var(--_bg-hover);
+  border-color: var(--_border-hover);
+}
+
+.kit-btn:active:not(:disabled) {
+  background-color: var(--_bg-active);
+}
+
+.kit-btn:disabled,
+.kit-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.kit-btn--primary {
+  --_bg: var(--kit-button-primary-bg);
+  --_bg-hover: var(--kit-button-primary-bg-hover);
+  --_bg-active: var(--kit-button-primary-bg-active);
+  --_fg: var(--kit-button-primary-fg);
+  --_border: var(--kit-button-primary-border);
+}
+
+.kit-btn--ghost {
+  --_bg: var(--kit-button-ghost-bg);
+  --_bg-hover: var(--kit-button-ghost-bg-hover);
+  --_bg-active: var(--kit-button-ghost-bg-active);
+  --_fg: var(--kit-button-ghost-fg);
+  --_border: var(--kit-button-ghost-border);
+}
+
+.kit-btn--danger {
+  --_bg: var(--kit-button-danger-bg);
+  --_bg-hover: var(--kit-button-danger-bg-hover);
+  --_bg-active: var(--kit-button-danger-bg-active);
+  --_fg: var(--kit-button-danger-fg);
+  --_border: var(--kit-button-danger-border);
+}
+
+/* Sizes */
+.kit-btn--sm {
+  height: var(--kit-button-height-sm);
+  padding-inline: var(--kit-space-3);
+  font-size: var(--kit-font-size-xs);
+}
+
+.kit-btn--lg {
+  height: var(--kit-button-height-lg);
+  padding-inline: var(--kit-space-6);
+  font-size: var(--kit-font-size-base);
+}
+
+.kit-btn--block {
+  display: flex;
+  width: 100%;
+}

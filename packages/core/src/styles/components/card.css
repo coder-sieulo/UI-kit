@@ -1,0 +1,43 @@
+/* Card — raised surface with optional header/body/footer. */
+
+.kit-card {
+  background-color: var(--kit-color-bg-raised);
+  border: 1px solid var(--kit-color-border-default);
+  border-radius: var(--kit-radius-md);
+  box-shadow: var(--kit-shadow-sm);
+  overflow: clip;
+}
+
+.kit-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--kit-space-3);
+  padding: var(--kit-space-4);
+  border-block-end: 1px solid var(--kit-color-border-muted);
+  font-size: var(--kit-font-size-base);
+  font-weight: var(--kit-font-weight-semibold);
+}
+
+.kit-card__body {
+  padding: var(--kit-space-4);
+}
+
+.kit-card__footer {
+  padding: var(--kit-space-4);
+  border-block-start: 1px solid var(--kit-color-border-muted);
+  background-color: var(--kit-color-bg-sunken);
+}
+
+.kit-card--interactive {
+  cursor: pointer;
+  transition:
+    border-color var(--kit-motion-duration-fast) var(--kit-motion-easing-standard),
+    box-shadow var(--kit-motion-duration-fast) var(--kit-motion-easing-standard),
+    transform var(--kit-motion-duration-fast) var(--kit-motion-easing-standard);
+}
+
+.kit-card--interactive:hover {
+  border-color: var(--kit-color-border-strong);
+  box-shadow: var(--kit-shadow-md);
+}

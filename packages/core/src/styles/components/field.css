@@ -1,0 +1,30 @@
+/* Form field — label + control + hint/error. */
+
+.kit-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kit-space-1);
+}
+
+.kit-field__label {
+  font-size: var(--kit-font-size-sm);
+  font-weight: var(--kit-font-weight-medium);
+  color: var(--kit-field-label-fg);
+}
+
+.kit-field__required {
+  color: var(--kit-color-danger-fg);
+}
+
+.kit-field__hint,
+.kit-field__error {
+  font-size: var(--kit-font-size-xs);
+}
+
+.kit-field__hint {
+  color: var(--kit-field-hint-fg);
+}
+
+.kit-field__error {
+  color: var(--kit-field-error-fg);
+}

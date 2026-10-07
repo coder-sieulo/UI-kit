@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.freebuff/
+
+# generated from tokens/ — rebuild with `npm run build:tokens'
+packages/core/src/styles/tokens.css
+packages/core/src/tokens.ts
+flutter/lib/src/tokens.g.dart

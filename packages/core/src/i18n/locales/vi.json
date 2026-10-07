@@ -1,0 +1,12 @@
+{
+  "dialog": {
+    "close": "Đóng"
+  },
+  "toast": {
+    "dismiss": "Đóng",
+    "region": "Thông báo"
+  },
+  "field": {
+    "required": "bắt buộc"
+  }
+}

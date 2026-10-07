@@ -1,0 +1,21 @@
+{
+  "name": "@kit/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ultra-light multi-platform UI kit core: pure CSS + vanilla runtime + i18n",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/kit.min.js"
+    },
+    "./css": "./dist/kit.min.css",
+    "./base.css": "./dist/kit.base.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ]
+}
